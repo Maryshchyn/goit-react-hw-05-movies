@@ -25,7 +25,7 @@ export const MovieDetails = () => {
 
   
   return (<>
-    <Link to='/movies//'>Go back</Link>
+    <Link to='/'>Go back</Link>
     <div><ul>
       <li><h2>{original_title}</h2></li>
       <li><p>{ release_date}</p></li>
