@@ -11,7 +11,7 @@ export const Cast =()=> {
 
   useEffect(() => {
     loadCast();
-  }, []);
+  }, [loadCast]);
 
   function loadCast() {
     axios

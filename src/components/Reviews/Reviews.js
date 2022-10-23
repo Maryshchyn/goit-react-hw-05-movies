@@ -9,7 +9,7 @@ export const Reviews = () => {
     const { movieId } = useParams();
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`).then(res => { setReviews(res.data.results) })
-    }, []);
+    }, [movieId]);
 
     
     return reviews.map(review => {
