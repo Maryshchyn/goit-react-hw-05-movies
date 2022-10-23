@@ -10,18 +10,16 @@ export const Cast =()=> {
     console.log(cast)
 
   useEffect(() => {
-    loadCast();
-  }, [loadCast]);
-
-  function loadCast() {
-    axios
+     axios
       .get(
         `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${KEY}`
       )
       .then(response => {
         return setCast(response.data.cast);
       });
-  }
+  }, [movieId]);
+
+  
 
   
     return cast.map(actor => {
