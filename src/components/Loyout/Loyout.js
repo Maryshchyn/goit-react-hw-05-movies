@@ -7,6 +7,6 @@ export const Loyout = () => {
     return (<>
         <AppBar />
         
-        <Outlet/>
+        {/* <Outlet/> */}
     </>);
 }

@@ -26,7 +26,7 @@ export const App = () => {
         </Route>
 
 
-        <Route path="*" element={<Loyout />}></Route>
+        <Route path="*" element={<Home />}></Route>
       </Routes>
     </div>
   );

@@ -20,7 +20,7 @@ export const Movies = () => {
   function handleSubmit(e) {
     e.preventDefault();
     if (!query) {
-      alert('Please enter a search query');
+      alert('Введіть щось');
     } else {
       axios
         .get(
