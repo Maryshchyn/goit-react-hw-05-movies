@@ -7,7 +7,7 @@ import { Link, NavLink, Outlet, useParams } from "react-router-dom"
 export const MovieDetails = () => {
   const [movies, setMovies] = useState(null);
   const [genres, setGenres] = useState([])
-  // console.log(movies)
+  
   const KEY = '518d624082d6ba170a75ad4d399f89a3';
   const { movieId } = useParams();
   useEffect(() => {
