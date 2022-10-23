@@ -11,7 +11,7 @@ export const Reviews = () => {
         axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`).then(res => { setReviews(res.data.results) })
     }, []);
 
-    function reviewList() {
+    
     return reviews.map(review => {
       return (
         <div key={review.id}>
@@ -20,7 +20,7 @@ export const Reviews = () => {
         </div>
       );
     });
-  }
+  
 
-  return <div>{reviewList()}</div>;
+  
 }

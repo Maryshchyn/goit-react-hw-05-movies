@@ -23,7 +23,7 @@ export const Cast =()=> {
       });
   }
 
-  function castList() {
+  
     return cast.map(actor => {
       return (
         <div key={actor.cast_id}>
@@ -34,6 +34,3 @@ export const Cast =()=> {
       );
     });
   }
-
-  return <div>{castList()}</div>;
-}

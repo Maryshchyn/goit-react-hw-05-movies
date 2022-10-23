@@ -8,30 +8,30 @@ import { Link } from 'react-router-dom';
 
 
 export const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchedMoviesList, setSearchedMoviesList] = useState([]);
-  // console.log(searchQuery)
+  const [query, setQuery] = useState('');
+  const [searchMovie, setSearchMovie] = useState([]);
   
-  console.log(searchedMoviesList)
+  
+  console.log(searchMovie)
   function handleChange(e) {
-    setSearchQuery(e.target.value);
+    setQuery(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!searchQuery) {
+    if (!query) {
       alert('Please enter a search query');
     } else {
       axios
         .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=518d624082d6ba170a75ad4d399f89a3&query=${searchQuery}`
+          `https://api.themoviedb.org/3/search/movie?api_key=518d624082d6ba170a75ad4d399f89a3&query=${query}`
         )
-        .then(result => setSearchedMoviesList(result.data.results));
+        .then(result => setSearchMovie(result.data.results));
     }
   }
 
   function searchedMovies() {
-    return searchedMoviesList.map(({id, title}) => {
+    return searchMovie.map(({id, title}) => {
       return (
         <Link
           
@@ -52,14 +52,14 @@ export const Movies = () => {
           
           type="text"
           name="searchQuery"
-          value={searchQuery}
+          value={query}
           onChange={handleChange}
           placeholder='Search a movie...'
         />
         
       </form>
       {searchedMovies()}
-      <Link to={`${searchQuery.id}`}>{searchQuery.id}</Link>
+      <Link to={`${query.id}`}>{query.id}</Link>
       
     </div>
   );
