@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { DetailsLi, DetailsDiv,DetailsDivDesc ,GenresLi,GenresUl, MovInfoDiv,InfoLi,LinkInfo,InfoUl} from './MovieDetail.styled'
 
 
