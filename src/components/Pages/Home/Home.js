@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import { NavLink } from "react-router-dom";
-import {StyledLink, Navigation, HomeDiv, HomeH2} from './Home.styled'
-
+import {HomeH2, HomeLi, HomeLink} from './Home.styled'
 
 export const Home = () => {
  const KEY = '47d87a6ded9ca2ccb65e37d85c25f2f6';
@@ -20,22 +19,21 @@ export const Home = () => {
     
     <div>
       
-      <Navigation >Trending movies</Navigation>
+      <HomeH2 >Trending movies</HomeH2>
       <div >
       
           { movies.map(({id, original_title, poster_path}) => {
             return (
         
-        <StyledLink
+        <HomeLink
           
           key={id}
           to={`movies/${id}`}
         >
-          <HomeDiv>
-            <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt=''/>
-            <HomeH2>{original_title}</HomeH2>
-          </HomeDiv>
-              </StyledLink>
+                <ul>
+                  <HomeLi>{original_title}</HomeLi>
+               </ul>
+              </HomeLink>
               
               
       );

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { MovieLink, MovieButton, MovieForm, MovieInput } from './Movies.styled';
 
 
 
@@ -33,13 +33,13 @@ export const Movies = () => {
   function searchedMovies() {
     return searchMovie.map(({id, title}) => {
       return (
-        <Link
+        <MovieLink
           
           key={id}
           to={id.toString()}
         >
           <div>{title}</div>
-        </Link>
+        </MovieLink>
       );
     });
   }
@@ -47,17 +47,18 @@ export const Movies = () => {
   return (
     <div>
       
-      <form onSubmit={handleSubmit}>
-        <input
-          
+      <MovieForm onSubmit={handleSubmit}>
+        
+        <MovieInput
           type="text"
           name="searchQuery"
           value={query}
           onChange={handleChange}
-          placeholder='Search a movie...'
+          placeholder='Пошук фільму'
         />
+        <MovieButton>Пошук</MovieButton>
         
-      </form>
+      </MovieForm>
       {searchedMovies()}
       <Link to={`${query.id}`}>{query.id}</Link>
       

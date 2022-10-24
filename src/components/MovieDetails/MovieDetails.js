@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom"
-
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { DetailsLi, DetailsDiv,DetailsDivDesc ,GenresLi,GenresUl, MovInfoDiv,InfoLi,LinkInfo,InfoUl} from './MovieDetail.styled'
 
 
 export const MovieDetails = () => {
@@ -26,41 +26,63 @@ export const MovieDetails = () => {
   
   return (<>
     <Link to='/'>Go back</Link>
-    <div><ul>
-      <li><h2>{original_title}</h2></li>
-      <li><p>{ release_date}</p></li>
-      <li><img  src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt='' /></li>
-    </ul>
-      <div>
-      <ul>
+
+    
+    <div>
+
+      <DetailsDiv>
+      
+        <div>
+        <ul>
+      <DetailsLi><h2>{original_title}</h2></DetailsLi>
+      <DetailsLi><p>{ release_date}</p></DetailsLi>
+      <DetailsLi><img  src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt='' /></DetailsLi>
+        </ul>
+      </div>
+        
+        
+        <DetailsDivDesc>
+      <GenresUl>
+            <h3>Genres</h3>
               {genres.map(genre => {
                 if (!genre) {
                   return <li>Not specified</li>;
                 } else {
                   return (
-                    <li  key={genre.id}>
+                    <GenresLi  key={genre.id}>
                       {genre.name}
-                    </li>
+                    </GenresLi>
                   );
                 }
               })}
-        </ul>
+          </GenresUl>
         <h3>User score</h3>
         <p>{movies.vote_average}</p>
         <h3>Overview</h3>
         <p>{ movies.overview}</p>
-      </div>
+     </DetailsDivDesc>
+
+      </DetailsDiv>
+
+
+    <MovInfoDiv>
+
       <h2>Additional information</h2>
-      <ul>
-        <li>
-          <NavLink to='cast'>Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to='reviews'>Reviews</NavLink>
-        </li>
-      </ul>
-      <NavLink />
-      <Outlet/>
+      <InfoUl>
+        <InfoLi>
+          <LinkInfo to='cast'>Cast</LinkInfo>
+        </InfoLi>
+        <InfoLi>
+          <LinkInfo to='reviews'>Reviews</LinkInfo>
+        </InfoLi>
+      </InfoUl>
+      </MovInfoDiv>
+
+
+
+      <Outlet />
+      
+
     </div>
     
 
