@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import {StyledLink, Navigation, HomeDiv, HomeH2} from './Home.styled'
 
 
 export const Home = () => {
@@ -19,22 +20,22 @@ export const Home = () => {
     
     <div>
       
-      <h2 >Trending movies</h2>
+      <Navigation >Trending movies</Navigation>
       <div >
       
           { movies.map(({id, original_title, poster_path}) => {
             return (
         
-        <Link
+        <StyledLink
           
           key={id}
           to={`movies/${id}`}
         >
-          <div>
+          <HomeDiv>
             <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt=''/>
-            <h3>{original_title}</h3>
-          </div>
-              </Link>
+            <HomeH2>{original_title}</HomeH2>
+          </HomeDiv>
+              </StyledLink>
               
               
       );
