@@ -26,8 +26,7 @@ export const Cast =()=> {
       return (
         <div key={actor.cast_id}>
           <p>{actor.name}</p>
-          <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path
-}`} alt=''/>
+          <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt=''/>
         </div>
       );
     });
