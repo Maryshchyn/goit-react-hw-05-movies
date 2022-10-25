@@ -11,7 +11,7 @@ export const AppBar = () => {
               <AppBarLink to="movies">Movies</AppBarLink>
             </AppBarLi>
         </AppBarUl>
-        <Outlet/>
+        {/* <Outlet/> */}
         </>
         
     )

@@ -12,7 +12,7 @@ export const Movies = () => {
   const [searchMovie, setSearchMovie] = useState([]);
   
   
-  console.log(searchMovie)
+  
   function handleChange(e) {
     setQuery(e.target.value);
   }
