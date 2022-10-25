@@ -19,16 +19,25 @@ export const Cast =()=> {
       });
   }, [movieId]);
 
-  
+  return (
+     <ul>
+          {cast.map(({ id, original_name, profile_path }) => (
+            <li key={id}>
+              {profile_path ? (
+                <img
+                  src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
+                  alt=""
+                  
+                />
+              ) : (
+                <p>Фото не знайдено</p> 
+              )}
 
-  
-    return cast.map(actor => {
-      return (
-        <div key={actor.cast_id}>
-          <p>{actor.name}</p>
-          <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path
-}`} alt=''/>
-        </div>
-      );
-    });
+              <p>{original_name}</p>
+              
+            </li>
+          ))}
+        </ul>
+  )
+ 
   }
