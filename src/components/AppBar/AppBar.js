@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import { AppBarLink, AppBarUl, AppBarLi } from './AppBar.styled';
 
 export const AppBar = () => {
