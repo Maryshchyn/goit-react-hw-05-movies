@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import {  useLocation } from "react-router-dom";
 
 import {apiHome} from '../../Src/Src';
-import {HomeH2, HomeLi, HomeLink} from './Home.styled'
+import {HomeH2, HomeLi, HomeLink, HomeH1, HomeImg, HomeUl} from './Home.styled'
 
 export const Home = () => {
- 
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -15,36 +16,29 @@ export const Home = () => {
     retApi()
   }, []);
 
-  
+  if (!movies) {
+    return;
+  }
 
-  return (<>
-    
-    <div>
-      
-      <HomeH2 >Trending movies</HomeH2>
-      <div >
-      
-          { movies.map(({id, original_title}) => {
-            return (
-        
-        <HomeLink
-          
-          key={id}
-          to={`movies/${id}`}
-        >
-                <ul>
-                  <HomeLi>{original_title}</HomeLi>
-               </ul>
-              </HomeLink>
-              
-              
-      );
-    })}
-        
-      </div>
-    </div>
+ return (
+    <>
+      <HomeH1>Trending today</HomeH1>
+      <HomeUl>
+        {movies.map(movie => (
+          <HomeLi key={movie.id}>
+            <HomeLink to={`movies/${movie.id}`} state={{ from: location }}>
+              <HomeImg
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt=""
+              />
+              <HomeH2>{movie.title}</HomeH2>
+            </HomeLink>
+          </HomeLi>
+        ))}
+      </HomeUl>
     </>
   );
+  
 
   
 }
