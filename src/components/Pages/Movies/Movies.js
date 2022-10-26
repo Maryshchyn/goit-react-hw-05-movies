@@ -1,67 +1,92 @@
 
 
-import { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+
+import {  NavLink, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { MovieLink, MovieButton, MovieForm, MovieInput } from './Movies.styled';
-
-
+import {apiSearch} from '../../Src/Src';
 
 export const Movies = () => {
+  const location = useLocation()
   const [query, setQuery] = useState('');
-  const [searchMovie, setSearchMovie] = useState([]);
+  const [films, setFilms] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search  = searchParams.get('query') ?? '';
   
+  useEffect(() => {
+    if (search !== '') {
+      async function retApi() {
+        
+          const items = await apiSearch(search );
+          setFilms(items.results);
+        
+      }
+      retApi();
+    }
+  }, [search]);
   
+  if (!films) {
+    return null;
+  }
   
   function handleChange(e) {
-    setQuery(e.target.value);
+     setQuery(e.target.value.toLowerCase());
   }
 
-  function handleSubmit(e) {
+  const hendleSubmit = e => {
     e.preventDefault();
-    if (!query) {
+    if (query.trim() === '') {
       alert('Введіть щось');
-    } else {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=518d624082d6ba170a75ad4d399f89a3&query=${query}`
-        )
-        .then(result => setSearchMovie(result.data.results));
+      return;
     }
-  }
+    setQuery(query);
 
-  function searchedMovies() {
-    return searchMovie.map(({id, title}) => {
-      return (
-        <MovieLink
-          
-          key={id}
-          to={id.toString()}
-        >
-          <div>{title}</div>
-        </MovieLink>
-      );
-    });
-  }
+    setSearchParams(query !== '' ? { query: query } : '');
+  };
 
-  return (
+
+  
+
+   return (
     <div>
-      
-      <MovieForm onSubmit={handleSubmit}>
-        
-        <MovieInput
-          type="text"
-          name="searchQuery"
-          value={query}
-          onChange={handleChange}
-          placeholder='Пошук фільму'
-        />
-        <MovieButton>Пошук</MovieButton>
-        
-      </MovieForm>
-      {searchedMovies()}
-      <Link to={`${query.id}`}>{query.id}</Link>
-      
+      <div>
+        <MovieForm onSubmit={hendleSubmit}>
+          <MovieInput
+            type="text"
+            onChange={handleChange}
+            name={search}
+            value={query}
+            placeholder={'Веедіть назву фільму'}
+          ></MovieInput>
+          <MovieButton type="submit">
+            Пошук
+          </MovieButton>
+        </MovieForm>
+      </div>
+      <div>
+        <ul>
+          {films.map(film => (
+            <li key={film.id}>
+              <MovieLink to={`${film.id}`} state={{from: location}}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${film.poster_path}`}
+                  alt=""
+                />
+                <h2>{film.title}</h2>
+              </MovieLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* <Suspense fallback={null}>
+        <Outlet />
+      </Suspense> */}
     </div>
   );
 }
+
+
+
+
+
+

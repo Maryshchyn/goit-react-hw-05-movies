@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import {  NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { DetailsLi, DetailsDiv,DetailsDivDesc ,GenresLi,GenresUl, MovInfoDiv,InfoLi,LinkInfo,InfoUl} from './MovieDetail.styled'
 
 
 export const MovieDetails = () => {
   const [movies, setMovies] = useState(null);
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState([]);
+  const location = useLocation();
+  
+ 
   
   const KEY = '518d624082d6ba170a75ad4d399f89a3';
   const { movieId } = useParams();
@@ -22,10 +25,10 @@ export const MovieDetails = () => {
   }
 
   const { original_title, release_date, poster_path } = movies;
-
+console.log(location)
   
   return (<>
-    <Link to='/'>Go back</Link>
+    <NavLink to={location.state.from}>Go back</NavLink>
 
     
     <div>

@@ -10,11 +10,10 @@ export const Cast =()=> {
     console.log(cast)
 
   useEffect(() => {
-    async function qwe() {
-     const movieCast = await apiCast(movieId);
-        setCast(movieCast);
+    async function retApi() {
+        setCast(await apiCast(movieId));
     }
-    qwe()
+    retApi()
   }, [movieId]);
 
   return (

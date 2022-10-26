@@ -9,11 +9,11 @@ export const Reviews = () => {
     
   
   useEffect(() => {
-   async function qwe() {
-     const movieCast = await apiReviews(movieId);
-        setReviews(movieCast);
+   async function retApi() {
+    
+        setReviews(await apiReviews(movieId));
     }
-    qwe()
+    retApi()
     }, [movieId]);
 
     

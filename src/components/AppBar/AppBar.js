@@ -1,4 +1,4 @@
-// import { Outlet } from "react-router-dom";
+
 import { AppBarLink, AppBarUl, AppBarLi } from './AppBar.styled';
 
 export const AppBar = () => {
@@ -11,7 +11,7 @@ export const AppBar = () => {
               <AppBarLink to="movies">Movies</AppBarLink>
             </AppBarLi>
         </AppBarUl>
-        {/* <Outlet/> */}
+        
         </>
         
     )
