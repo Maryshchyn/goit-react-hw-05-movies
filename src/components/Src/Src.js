@@ -20,3 +20,7 @@ export async function apiSearch(query) {
   const response = await axios(`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${query}`);
   return response.data;
 }
+export async function apiDetails(movieId) {
+  const response = await axios(`/movie/${movieId}?api_key=${KEY}`);
+  return response.data;
+}

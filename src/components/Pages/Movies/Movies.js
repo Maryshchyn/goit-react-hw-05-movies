@@ -3,7 +3,7 @@
 import {  useEffect, useState } from 'react';
 
 import {  useLocation, useSearchParams } from 'react-router-dom';
-import { MovieLink, MovieButton, MovieForm, MovieInput } from './Movies.styled';
+import { MovieLink, MovieButton, MovieForm, MovieH2 } from './Movies.styled';
 import {apiSearch} from '../../Src/Src';
 
 export const Movies = () => {
@@ -51,13 +51,13 @@ export const Movies = () => {
     <div>
       <div>
         <MovieForm onSubmit={hendleSubmit}>
-          <MovieInput
+          <input
             type="text"
             onChange={handleChange}
             name={search}
             value={query}
             placeholder={'Веедіть назву фільму'}
-          ></MovieInput>
+          ></input>
           <MovieButton type="submit">
             Пошук
           </MovieButton>
@@ -72,7 +72,7 @@ export const Movies = () => {
                   src={`https://image.tmdb.org/t/p/w200${film.poster_path}`}
                   alt=""
                 />
-                <h2>{film.title}</h2>
+                <MovieH2>{film.title}</MovieH2>
               </MovieLink>
             </li>
           ))}

@@ -24,9 +24,7 @@ export const HomeH2 = styled.h2`
 export const HomeLi = styled.li`
   list-style: none;
 `;
-export const HomeImg = styled.img`
- 
-`;
+
 export const HomeUl = styled.ul`
 display: flex;
   flex-wrap: wrap;

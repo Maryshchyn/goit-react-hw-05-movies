@@ -7,17 +7,14 @@ export const MovieLink = styled(NavLink)`
   font-family: cursive;
    border-color: transparent;
 `;
-export const MovieLabel = styled.label`
-
-  
-`;
 export const MovieForm = styled.form`
    display: flex;
    justify-content: center;
  
 `;
-export const MovieInput = styled.input`
 
+export const MovieH2 = styled.h2`
+font-size: 0.8em;
 
 `;
 export const MovieButton = styled.button`

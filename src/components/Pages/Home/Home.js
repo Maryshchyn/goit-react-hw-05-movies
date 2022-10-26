@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {  useLocation } from "react-router-dom";
 
 import {apiHome} from '../../Src/Src';
-import {HomeH2, HomeLi, HomeLink, HomeH1, HomeImg, HomeUl} from './Home.styled'
+import {HomeH2, HomeLi, HomeLink, HomeH1, HomeUl} from './Home.styled'
 
 export const Home = () => {
   const location = useLocation();
@@ -27,7 +27,7 @@ export const Home = () => {
         {movies.map(movie => (
           <HomeLi key={movie.id}>
             <HomeLink to={`movies/${movie.id}`} state={{ from: location }}>
-              <HomeImg
+              <img
                 src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                 alt=""
               />
