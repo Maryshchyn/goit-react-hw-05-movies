@@ -28,7 +28,7 @@ export const MovieDetails = () => {
 console.log(location)
   
   return (<>
-    <NavLink to={location.state.from}>Go back</NavLink>
+    <NavLink to={location.state?.from}>Go back</NavLink>
 
     
     <div>
