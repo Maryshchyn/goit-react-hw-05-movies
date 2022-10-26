@@ -1,8 +1,8 @@
 
 
-import { Suspense, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 
-import {  NavLink, Outlet, useLocation, useSearchParams } from 'react-router-dom';
+import {  useLocation, useSearchParams } from 'react-router-dom';
 import { MovieLink, MovieButton, MovieForm, MovieInput } from './Movies.styled';
 import {apiSearch} from '../../Src/Src';
 
@@ -78,9 +78,6 @@ export const Movies = () => {
           ))}
         </ul>
       </div>
-      {/* <Suspense fallback={null}>
-        <Outlet />
-      </Suspense> */}
     </div>
   );
 }
