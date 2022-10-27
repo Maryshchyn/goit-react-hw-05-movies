@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {  NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { DetailsLi, DetailsDiv,DetailsDivDesc ,GenresLi,GenresUl, MovInfoDiv,InfoLi,LinkInfo,InfoUl} from './MovieDetail.styled'
-
+import {Key} from '../Src/Key'
 
 export const MovieDetails = () => {
   const [movies, setMovies] = useState(null);
@@ -11,10 +11,10 @@ export const MovieDetails = () => {
   
  
   
-  const KEY = '518d624082d6ba170a75ad4d399f89a3';
+  
   const { movieId } = useParams();
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${KEY}&language=en-US`).then(res => {
+    axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${Key}&language=en-US`).then(res => {
         setGenres(res.data.genres);
         return setMovies(res.data);
       });
