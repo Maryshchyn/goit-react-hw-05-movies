@@ -10,7 +10,7 @@ export const MovieDetails = () => {
   const location = useLocation();
   
  
-  
+  const backLinkHref = location.state?.from || '/';
   
   const { movieId } = useParams();
   useEffect(() => {
@@ -73,10 +73,10 @@ console.log(location)
       <h2>Additional information</h2>
       <InfoUl>
         <InfoLi>
-          <LinkInfo to='cast'>Cast</LinkInfo>
+          <LinkInfo to='cast' state={{from: backLinkHref}}>Cast</LinkInfo>
         </InfoLi>
         <InfoLi>
-          <LinkInfo to='reviews'>Reviews</LinkInfo>
+          <LinkInfo to='reviews' state={{from: backLinkHref}}>Reviews</LinkInfo>
         </InfoLi>
       </InfoUl>
       </MovInfoDiv>
