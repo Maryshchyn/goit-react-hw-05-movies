@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {apiCast} from '../Src/Src';
+import {apiCast} from '../Utils/api';
 
 export const Cast =()=> {
   const [cast, setCast] = useState([]);

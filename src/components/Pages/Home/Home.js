@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {  useLocation } from "react-router-dom";
 
-import {apiHome} from '../../Src/Src';
+import {apiHome} from '../../Utils/api';
 import {HomeH2, HomeLi, HomeLink, HomeH1, HomeUl} from './Home.styled'
 
 export const Home = () => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {Key} from './Key'
+import {Key} from './constants'
 
 
 export async function apiCast(movieId) {

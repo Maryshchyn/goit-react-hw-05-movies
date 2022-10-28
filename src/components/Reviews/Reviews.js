@@ -1,4 +1,4 @@
-import {apiReviews} from '../Src/Src';
+import {apiReviews} from '../Utils/api';
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 

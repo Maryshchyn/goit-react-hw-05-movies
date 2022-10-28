@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {  NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { DetailsLi, DetailsDiv,DetailsDivDesc ,GenresLi,GenresUl, MovInfoDiv,InfoLi,LinkInfo,InfoUl} from './MovieDetail.styled'
-import {Key} from '../Src/Key'
+import {Key} from '../Utils/constants'
 
 export const MovieDetails = () => {
   const [movies, setMovies] = useState(null);

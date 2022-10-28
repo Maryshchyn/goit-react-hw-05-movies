@@ -4,7 +4,7 @@ import {  useEffect, useState } from 'react';
 
 import {  useLocation, useSearchParams } from 'react-router-dom';
 import { MovieLink, MovieButton, MovieForm, MovieH2 } from './Movies.styled';
-import {apiSearch} from '../../Src/Src';
+import {apiSearch} from '../../Utils/api';
 
 export const Movies = () => {
   const location = useLocation()
